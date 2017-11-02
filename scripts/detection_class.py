@@ -1,7 +1,9 @@
+#!/usr/bin/env python
 import cv2
 import numpy as np
 import os
 import copy
+import rospkg
 
 class SignalDetecor:
 
@@ -28,13 +30,19 @@ class SignalDetecor:
         return (output/2.0).astype(np.uint8)
 
 
-    def __init__(self):
+    def __init__(self,template_path):
 
+        print template_path
         # load template images
-        self.temp0 = cv2.imread('templates/red2green.png')
-        self.temp1 = cv2.imread('templates/red2black.png')
-        self.temp2 = cv2.imread('templates/black2green.png')
-        self.temp3 = cv2.imread('templates/green2red.png')
+        self.temp0 = cv2.imread(template_path+'red2green.png')
+        self.temp1 = cv2.imread(template_path+'red2black.png')
+        self.temp2 = cv2.imread(template_path+'black2green.png')
+        self.temp3 = cv2.imread(template_path+'green2red.png')
+        # self.temp0 = cv2.imread('templates/red2green.png')
+        # self.temp1 = cv2.imread('templates/red2black.png')
+        # self.temp2 = cv2.imread('templates/black2green.png')
+        # self.temp3 = cv2.imread('templates/green2red.png')
+
 
         self.temp0_h = self.temp0.shape[0]
         self.temp0_w = self.temp0.shape[1]
