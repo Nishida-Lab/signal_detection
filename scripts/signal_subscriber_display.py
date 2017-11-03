@@ -25,6 +25,7 @@ class SignalDisplayNode:
 
     def once(self):
         frame = self.cv_image
+        height, width = frame.shape[:2]
 
         if self.output == 0:
             signal_state = "UNKOWN"
@@ -39,7 +40,7 @@ class SignalDisplayNode:
         message = " signal state : "+signal_state
         rospy.loginfo(rospy.get_caller_id() + '%s', message)
 
-        cv2.putText(frame, signal_state, (10, 25),
+        cv2.putText(frame, signal_state, (10, height-25),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
 
         cv2.imshow('output_frame',frame)

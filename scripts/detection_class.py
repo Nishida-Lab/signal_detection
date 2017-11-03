@@ -130,15 +130,15 @@ class SignalDetecor:
                 signal_state = "RED"
                 color = (0,0,255)
 
-            message = "signal state "+str(self.state)+": "+signal_state
+            # message = "signal state "+str(self.state)+": "+signal_state
             #print message
-            cv2.putText(display_frame, signal_state, (10, 25),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
+            # cv2.putText(display_frame, signal_state, (10, 25),
+            #             cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
 
             # display the resulting frame
-            cv2.imshow('frame',display_frame)
-            cv2.imshow('diff4',output)
-            cv2.waitKey(3)
+            # cv2.imshow('frame',display_frame)
+            # cv2.imshow('diff4',output)
+            # cv2.waitKey(3)
 
         self.frame4=self.frame3
         self.frame3=self.frame2
